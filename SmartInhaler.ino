@@ -35,7 +35,12 @@ void loop() {
   Serial.print("Accelerometer: ");
    accelerometer_x/=1000;
   Serial.print("X = "); Serial.println(accelerometer_x);
-  if(accelerometer_x<11)
+  Serial.print("Accelerometer: ");
+   accelerometer_y/=1000;
+  Serial.print("y = "); Serial.println(accelerometer_y);
+  accelerometer_z/=1000;
+  Serial.print("z = "); Serial.println(accelerometer_z);
+  if(accelerometer_x==0&&accelerometer_y==0&&accelerometer_z==16)
   {
     digitalWrite(LED,HIGH);
   }
