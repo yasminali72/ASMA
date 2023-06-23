@@ -1,6 +1,5 @@
 #include <Wire.h>
 const int MPU = 0x68;  // I2C address of the MPU6050
-#define BUZZ 8
 #define LED 9
 int16_t accelerometer_x, accelerometer_y, accelerometer_z;
 int16_t gyroscope_x, gyroscope_y, gyroscope_z;
@@ -12,7 +11,6 @@ void setup() {
   Wire.write(0);     // Set to zero to wake up the MPU6050
   Wire.endTransmission(true);
   Serial.begin(9600);
-  pinMode(BUZZ,OUTPUT);
   pinMode(LED,OUTPUT);
 }
 
@@ -39,11 +37,10 @@ void loop() {
   Serial.print("X = "); Serial.println(accelerometer_x);
   if(accelerometer_x<11)
   {
-    digitalWrite(BUZZ,HIGH);
     digitalWrite(LED,HIGH);
   }
   else{
-    digitalWrite(BUZZ,LOW);
+  
     digitalWrite(LED,LOW);
     }
   //Serial.print(", Y = "); Serial.print(accelerometer_y);
